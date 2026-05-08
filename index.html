@@ -9,7 +9,8 @@
   :root { --primary: #0068c4; --bg: #f7f8fa; --text: #222; --muted: #666; }
   * { box-sizing: border-box; }
   body { font-family: -apple-system, "Yu Gothic", sans-serif; margin: 0; background: var(--bg); color: var(--text); }
-  .site-header { background: white; border-bottom: 1px solid #eee; padding: 10px 20px; display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .header-stack { position: sticky; top: 0; z-index: 100; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  .site-header { background: white; border-bottom: 1px solid #eee; padding: 8px 20px; display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   .site-header .title { font-size: 16px; font-weight: bold; color: var(--text); }
   .site-header .meta { font-size: 11px; color: var(--muted); }
   .top-nav { background: white; border-bottom: 1px solid #ddd; padding: 0 16px; overflow-x: auto; white-space: nowrap; display: flex; align-items: center; }
@@ -30,17 +31,19 @@
 </style>
 </head>
 <body>
-<div class="site-header">
-  <div class="title">経済指標ダッシュボード</div>
-  <div class="meta">最終生成: 2026-05-09 05:06</div>
+<div class="header-stack">
+  <div class="site-header">
+    <div class="title">経済指標ダッシュボード</div>
+    <div class="meta">最終生成: 2026-05-09 06:43</div>
+  </div>
+  <nav class="top-nav">
+    <a href="index.html" class="active">ホーム</a>
+    <a href="dashboard.html">米国経済指標</a>
+    <a href="dashboard_jp.html">日本経済指標</a>
+    <a href="dashboard_prices.html">資産価格</a>
+    <a href="dashboard_summary.html">景気局面サマリー</a>
+  </nav>
 </div>
-<nav class="top-nav">
-  <a href="index.html" class="active">ホーム</a>
-  <a href="dashboard.html">米国経済指標</a>
-  <a href="dashboard_jp.html">日本経済指標</a>
-  <a href="dashboard_prices.html">資産価格</a>
-  <a href="dashboard_summary.html">景気局面サマリー</a>
-</nav>
 <main>
   <div class="lead">
     <h1>投資判断の参考情報集</h1>

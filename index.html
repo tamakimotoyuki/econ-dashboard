@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>経済指標ダッシュボード（ホーム）</title>
+<style>
+  :root { --primary: #0068c4; --bg: #f7f8fa; --text: #222; --muted: #666; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "Yu Gothic", sans-serif; margin: 0; background: var(--bg); color: var(--text); }
+  .site-header { background: white; border-bottom: 1px solid #eee; padding: 10px 20px; display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .site-header .title { font-size: 16px; font-weight: bold; color: var(--text); }
+  .site-header .meta { font-size: 11px; color: var(--muted); }
+  .top-nav { background: white; border-bottom: 1px solid #ddd; padding: 0 16px; overflow-x: auto; white-space: nowrap; display: flex; align-items: center; }
+  .top-nav a { display: inline-block; padding: 12px 16px; color: var(--muted); text-decoration: none; font-size: 14px; border-bottom: 3px solid transparent; transition: color .15s; }
+  .top-nav a:hover { color: var(--primary); }
+  .top-nav a.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: bold; }
+  main { padding: 24px; max-width: 1000px; margin: 0 auto; }
+  .lead { background: white; border-radius: 8px; padding: 20px; margin-bottom: 16px; border-left: 4px solid var(--primary); }
+  .lead h1 { margin: 0 0 6px 0; font-size: 22px; }
+  .lead p { margin: 0; color: var(--muted); font-size: 13px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); text-decoration: none; color: var(--text); transition: transform 0.15s; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+  .card h2 { margin: 0 0 8px 0; font-size: 18px; color: var(--primary); }
+  .card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+  .note { margin-top: 24px; padding: 16px; background: white; border-radius: 8px; font-size: 13px; color: var(--muted); }
+  @media (max-width: 600px) { header h1 { font-size: 20px; } }
+</style>
+</head>
+<body>
+<div class="site-header">
+  <div class="title">経済指標ダッシュボード</div>
+  <div class="meta">最終生成: 2026-05-09 05:06</div>
+</div>
+<nav class="top-nav">
+  <a href="index.html" class="active">ホーム</a>
+  <a href="dashboard.html">米国経済指標</a>
+  <a href="dashboard_jp.html">日本経済指標</a>
+  <a href="dashboard_prices.html">資産価格</a>
+  <a href="dashboard_summary.html">景気局面サマリー</a>
+</nav>
+<main>
+  <div class="lead">
+    <h1>投資判断の参考情報集</h1>
+    <p>米国・日本のマクロ経済指標と主要資産価格の時系列ダッシュボード。検索エンジンには非公開（noindex）。</p>
+  </div>
+  <div class="grid">
+    <a class="card" href="dashboard.html">
+      <h2>米国経済指標</h2>
+      <p>FRED 21系列 + ISM PMI。先行・一致・遅行の3ジャンルで22指標を時系列表示。NBER景気後退グレー帯入り。</p>
+    </a>
+    <a class="card" href="dashboard_jp.html">
+      <h2>日本経済指標</h2>
+      <p>CPI / 政策金利 / 10年JGB / 失業率 / 鉱工業生産 / 実質GDP / 消費者信頼感など。</p>
+    </a>
+    <a class="card" href="dashboard_prices.html">
+      <h2>資産価格</h2>
+      <p>ダウ・S&P500・日経・TOPIX・USD/JPY・EUR/JPY・EUR/USD・BTC・XRP。ATHからのドローダウン併記。</p>
+    </a>
+    <a class="card" href="dashboard_summary.html">
+      <h2>景気局面サマリー</h2>
+      <p>先行・一致・遅行の3指数を z-score 化して合成、ゴールデンクロス/デッドクロスを検出。</p>
+    </a>
+  </div>
+  <div class="note">
+    <p><b>このダッシュボードについて</b><br>
+    投資判断の参考情報。検索エンジンへの登録は禁止（noindex/nofollow）。<br>
+    ソースリポジトリは Private で、URLを知っている人のみアクセス可能。</p>
+  </div>
+</main>
+</body>
+</html>

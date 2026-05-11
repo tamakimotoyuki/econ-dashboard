@@ -26,17 +26,34 @@
   .tab-content.active { display: block; }
   .genre-header h2 { margin: 0 0 4px 0; font-size: 18px; }
   .genre-header p { margin: 0 0 12px 0; color: var(--muted); font-size: 13px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(440px, 1fr)); gap: 16px; align-items: start; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px; align-items: start; }
   .card { background: white; border-radius: 8px; padding: 12px 8px 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); overflow: visible; }
   .card .plotly-graph-div { width: 100% !important; }
-  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } header h1 { font-size: 18px; } }
+  /* タブレット (601-1000px): 強制2カラム */
+  @media (max-width: 1000px) and (min-width: 601px) {
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  /* モバイル (≤600px): 1カラム + 余白圧縮 + チャート高さ縮小 */
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; gap: 10px; }
+    main { padding: 8px; }
+    .site-header { padding: 6px 12px; }
+    .site-header .title { font-size: 14px; }
+    .site-header .meta { font-size: 10px; }
+    .top-nav a, .tab-btn { padding: 10px 12px; font-size: 13px; }
+    .card { padding: 8px 4px 4px; }
+    .genre-header h2 { font-size: 16px; }
+    .genre-header p { font-size: 12px; }
+    /* 価格チャートは2段組で高い(530px)→ モバイルでは420pxに */
+    .card .js-plotly-plot, .card .plotly-graph-div { height: 420px !important; }
+  }
 </style>
 </head>
 <body>
 <div class="header-stack">
   <div class="site-header">
     <div class="title">経済指標ダッシュボード</div>
-    <div class="meta">生成: 2026-05-12 06:07 / 期間: 2005-01-01 / データ: Yahoo Finance</div>
+    <div class="meta">生成: 2026-05-12 06:16 / 期間: 2005-01-01 / データ: Yahoo Finance</div>
   </div>
   <nav class="top-nav">
     <a href="index.html">ホーム</a>

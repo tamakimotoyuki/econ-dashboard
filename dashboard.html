@@ -36,21 +36,36 @@
   .genre-header { margin-bottom: 12px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
   .genre-header h2 { margin: 0; font-size: 18px; display: inline; }
   .genre-header p { margin: 0; color: var(--muted); font-size: 13px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(440px, 1fr)); gap: 16px; align-items: start; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px; align-items: start; }
   .card { background: white; border-radius: 8px; padding: 12px 8px 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); overflow: visible; border-left: 4px solid #ccc; }
   /* ジャンル別カード左帯 */
   .card[data-genre="leading"] { border-left-color: #0068c4; }
   .card[data-genre="coincident"] { border-left-color: #5BA640; }
   .card[data-genre="lagging"] { border-left-color: #888; }
   .card .plotly-graph-div { width: 100% !important; }
-  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } header h1 { font-size: 18px; } }
+  /* タブレット (601-1000px): 強制2カラム */
+  @media (max-width: 1000px) and (min-width: 601px) {
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  /* モバイル (≤600px): 1カラム + 余白圧縮・フォント縮小 */
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; gap: 10px; }
+    main { padding: 8px; }
+    .site-header { padding: 6px 12px; }
+    .site-header .title { font-size: 14px; }
+    .site-header .meta { font-size: 10px; }
+    .top-nav a, .tab-btn { padding: 10px 12px; font-size: 13px; }
+    .card { padding: 8px 4px 4px; }
+    .genre-header h2 { font-size: 16px; }
+    .genre-header p { font-size: 12px; }
+  }
 </style>
 </head>
 <body>
 <div class="header-stack">
   <div class="site-header">
     <div class="title">経済指標ダッシュボード</div>
-    <div class="meta">生成: 2026-05-12 05:43 / 期間: 2005-01-01 / グレー帯: NBER景気後退</div>
+    <div class="meta">生成: 2026-05-12 06:16 / 期間: 2005-01-01 / グレー帯: NBER景気後退</div>
   </div>
   <nav class="top-nav">
     <a href="index.html">ホーム</a>

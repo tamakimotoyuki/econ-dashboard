@@ -7,10 +7,6 @@
 <title>資産価格ダッシュボード</title>
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 <style>
-  /* View Transitions: タブ/ページ切替を上品にクロスフェード（規約=【デザイン】/view-transitions.md） */
-  @view-transition { navigation: auto; }
-  ::view-transition-old(root), ::view-transition-new(root) { animation-duration: .28s; animation-timing-function: ease; }
-  @media (prefers-reduced-motion: reduce) { ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; } }
   :root { --primary: #0068c4; --accent: #5BA640; --bg: #f7f8fa; --text: #222; --muted: #666; }
   * { box-sizing: border-box; }
   body { font-family: -apple-system, "Yu Gothic", sans-serif; margin: 0; background: var(--bg); color: var(--text); }
@@ -57,7 +53,7 @@
 <div class="header-stack">
   <div class="site-header">
     <div class="title">経済指標ダッシュボード</div>
-    <div class="meta">生成: 2026-06-19 22:03 / 期間: 2005-01-01 / データ: Yahoo Finance</div>
+    <div class="meta">生成: 2026-06-20 22:05 / 期間: 2005-01-01 / データ: Yahoo Finance</div>
   </div>
   <nav class="top-nav">
     <a href="index.html">ホーム</a>
@@ -79,14 +75,7 @@
       if (window.Plotly) { Plotly.Plots.resize(div); }
     });
   }
-  function withVT(fn) {
-    const r = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (document.startViewTransition && !r) {
-      const t = document.startViewTransition(fn);
-      if (t) { if (t.ready) t.ready.catch(() => {}); if (t.finished) t.finished.catch(() => {}); }
-    } else { fn(); }
-  }
-  btns.forEach(b => b.addEventListener('click', () => withVT(() => activateTab(b.dataset.tab))));
+  btns.forEach(b => b.addEventListener('click', () => activateTab(b.dataset.tab)));
   if (btns.length > 0) { activateTab(btns[0].dataset.tab); }
   window.addEventListener('resize', () => {
     document.querySelectorAll('.tab-content.active .plotly-graph-div').forEach(div => {
